@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'demo_home/base.html' %}
+{% block content %}
+<html>
+<head>
+    <title>Inspections</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $(".clickable-row").click(function () {
+                const href = $(this).data("href");
+                if (href) {
+                    window.location = href;
+                }
+            });
+        });
+    </script>
+    <style>
+        .clickable-row {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inspections</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Attribute 1</th>
+                <th>Attribute 2</th>
+                <th>Attribute 3</th>
+                <th>Attribute 4</th>
+                <th>Attribute 5</th>
+                <th>Attribute 6</th>
+                <th>Attribute 7</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inspection in inspections %}
+            <tr class="clickable-row" data-href="{% url 'demo_home:conditions' inspection.id %}">
+                <td>{{ inspection.id }}</td>
+                <td>{{ inspection.Attribute_1 }}</td>
+                <td>{{ inspection.Attribute_2 }}</td>
+                <td>{{ inspection.Attribute_3 }}</td>
+                <td>{{ inspection.Attribute_4 }}</td>
+                <td>{{ inspection.Attribute_5 }}</td>
+                <td>{{ inspection.Attribute_6 }}</td>
+                <td>{{ inspection.Attribute_7 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}.</p>
+{% endif %}
+
+{% block content %}{% endblock content %}
+
+{% if user.is_authenticated %}
+    <hr />
+    <form action="{% url 'accounts:logout' %}" method='post'>
+        {% csrf_token %}
+        <button name='submit'>Log out</button>
+    </form>
+{% endif %}

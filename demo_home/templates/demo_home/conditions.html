@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% extends 'demo_home/base.html' %}
+{% block content %}
+<html>
+<head>
+    <title>Inspection Detail</title>
+</head>
+<body>
+    <h1>Inspection Details</h1>
+    <table border="1">
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td>{{ inspection.id }}</td>
+        </tr>
+        <tr>
+            <td>Attribute 1</td>
+            <td>{{ inspection.Attribute_1 }}</td>
+        </tr>
+        <tr>
+            <td>Attribute 2</td>
+            <td>{{ inspection.Attribute_2 }}</td>
+        </tr>
+        <tr>
+            <td>Attribute 3</td>
+            <td>{{ inspection.Attribute_3 }}</td>
+        </tr>
+        <tr>
+            <td>Attribute 4</td>
+            <td>{{ inspection.Attribute_4 }}</td>
+        </tr>
+        <tr>
+            <td>Attribute 5</td>
+            <td>{{ inspection.Attribute_5 }}</td>
+        </tr>
+        <tr>
+            <td>Attribute 6</td>
+            <td>{{ inspection.Attribute_6 }}</td>
+        </tr>
+        <tr>
+            <td>Attribute 7</td>
+            <td>{{ inspection.Attribute_7 }}</td>
+        </tr>
+    </table>
+
+    <h2>Related Conditions</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Attribute 1</th>
+                <th>Attribute 2</th>
+                <th>Attribute 3</th>
+                <th>Attribute 4</th>
+                <th>Attribute 5</th>
+                <th>Attribute 6</th>
+                <th>Attribute 7</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for condition in conditions %}
+            <tr>
+                <td>{{ condition.id }}</td>
+                <td>{{ condition.Attribute_1 }}</td>
+                <td>{{ condition.Attribute_2 }}</td>
+                <td>{{ condition.Attribute_3 }}</td>
+                <td>{{ condition.Attribute_4 }}</td>
+                <td>{{ condition.Attribute_5 }}</td>
+                <td>{{ condition.Attribute_6 }}</td>
+                <td>{{ condition.Attribute_7 }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">No related conditions found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock content %}
